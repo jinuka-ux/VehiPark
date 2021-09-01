@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="174px"
+        android:layout_height="140px"
+        android:onClick="ClickMenu"
+        android:src="@drawable/hamburgerblack"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="50px"
+        android:src="@drawable/steer"/>
+    <TextView
+        android:layout_width="390px"
+        android:layout_height="wrap_content"
+        android:text="VehiPark"
+        android:textSize="72px"
+        android:textStyle="normal"
+        android:fontFamily="@font/poppins"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+    <ImageView
+        android:layout_width="108.06px"
+        android:layout_height="117.94px"
+        android:layout_marginLeft="150px"
+        android:src="@drawable/notification"/>
+
+</LinearLayout>

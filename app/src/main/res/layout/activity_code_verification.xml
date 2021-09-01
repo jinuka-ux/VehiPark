@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgotPasswordActivity"
+    tools:context=".CodeVerificationActivity"
     >
 
     <ImageView
@@ -13,7 +13,6 @@
         android:layout_height="450px"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/steer" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="100dp"

@@ -1,8 +1,13 @@
 package com.example.vehipark;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -23,6 +28,7 @@ public class HomePageActivity extends AppCompatActivity {
     //Initialize variables
     TextView tvTimer1,tvTimer2;
     int t1Hour,t1Minute,t2Hour,t2Minute;
+    DrawerLayout drawerLayout;
 
 
     @Override
@@ -33,6 +39,7 @@ public class HomePageActivity extends AppCompatActivity {
         //Assign variable
         tvTimer1=findViewById(R.id.tv_timer1);
         tvTimer2=findViewById(R.id.tv_timer2);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         /*tvTimer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,5 +151,93 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         }
+        public void ClickMenu(View view){
+        //open drawer
+            openDrawer(drawerLayout);
+        }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        //Open drawer layout
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public void ClickLogo(View view){
+        //close drawer
+        closeDrawer(drawerLayout);
+    }
+
+    private static void closeDrawer(DrawerLayout drawerLayout) {
+        //Close drawer layout
+        //check condition
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            //When drawer is open
+            // close drawer
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+    public void ClickHome(View view){
+        //Recreate activity
+        recreate();
+    }
+    public void ClickBookings(View view){
+        //Redirect activity to bookings
+        redirectActivity(this,BookingDispActivity.class);
+    }
+    public void ClickFavourites(View view){
+        //Redirect activity to Favourites
+        redirectActivity(this,FavouriteActivity.class);
+    }
+    public void ClickHistory(View view){
+        //Redirect activity to Settings
+        redirectActivity(this,HistoryActivity.class);
+    }
+    public void ClickLogout(View view){
+        //close app
+        logout(this);
+    }
+
+    public static void logout(Activity activity) {
+        //Initialize alert box
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        //Set title
+        builder.setTitle("Logout");
+        //Set message
+        builder.setMessage("Are you sure you want to logout?");
+        //Positive YES button
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Finish Activity
+                activity.finishAffinity();
+                //Exit app
+                System.exit(0);
+            }
+        });
+        //Negative no button
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Dismiss dialog
+                dialog.dismiss();
+            }
+        });
+        //Show dialog
+        builder.show();
+    }
+
+    public static void redirectActivity(Activity activity, Class aClass) {
+        //Initialize intent
+        Intent intent = new Intent (activity,aClass);
+        //Set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Start activity
+        activity.startActivity(intent);
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //Close drawer
+        closeDrawer(drawerLayout);
+    }
+}

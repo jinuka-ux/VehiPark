@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PasswordUpdatedActivity"
-    >
+    tools:context=".BookingConfirmedActivity">
 
     <ImageView
         android:id="@+id/imageView1"
@@ -13,6 +12,7 @@
         android:layout_height="450px"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/steer" />
+
 
     <ImageView
         android:id="@+id/imageView8"
@@ -30,7 +30,7 @@
         android:gravity="center"
         android:layout_marginTop="600px"
         android:fontFamily="@font/montserrat"
-        android:text="PASSWORD\nUPDATED"
+        android:text="BOOKING\nCONFIRMED"
         android:textColor="#000000"
         android:textSize="96px"
         android:textStyle="bold" />
@@ -39,25 +39,17 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="102px"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="1200px"
         android:textStyle="normal"
         android:textColor="#000000"
+        android:gravity="center"
         android:fontFamily="@font/montserrat"
-        android:text="Your password has been updated!"
+        android:text="Your booking has been successfuly\nconfirmed.\nThank you!"
         android:textSize="48px" />
 
 
-    <Button
-        android:id="@+id/buttonGoLogIn"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="1350px"
-        android:text="Log in"
-        android:textSize="50px"
-        app:cornerRadius="50px"
-        app:rippleColor="#F23B5F" />
+
 
 
     <ImageView
@@ -81,6 +73,15 @@
         android:textColor="#ffffff"
         android:textSize="64px"
         android:textStyle="normal" />
+    <TextView
+        android:id="@+id/backToHomeBC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to Home"
+        android:textColor="@color/AppPink"
+        android:layout_marginTop="1500px"
+        android:layout_centerHorizontal="true"
+        android:textSize="48px"/>
 
 
 

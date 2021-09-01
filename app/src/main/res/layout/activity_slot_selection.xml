@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgotPasswordActivity"
+    tools:context=".SlotSelectionActivity"
     >
     <ImageView
         android:id="@+id/imageView6"
@@ -157,238 +157,79 @@
 
     <ScrollView
         android:layout_width="948px"
-        android:layout_height="1000px"
+        android:layout_height="900px"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="500px"
         android:elevation="4dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                <RadioButton
-                    android:layout_width="131px"
-                    android:layout_height="150px"
-                    android:background="@drawable/radio_selector"
-                    android:elevation="4dp"
-                    android:padding="16dp"
-                    android:layout_margin="16dp" />
-                <!-->android:button="@null"-->
-                <RadioButton
-                    android:layout_width="131px"
-                    android:layout_height="150px"
-                    android:background="@drawable/radio_selector"
-                    android:elevation="4dp"
-                    android:padding="16dp"
-                    android:layout_margin="16dp"/>
-                <!--android:button="@null"-->
-                <RadioButton
-                    android:layout_width="131px"
-                    android:layout_height="150px"
-                    android:background="@drawable/radio_selector"
-                    android:elevation="4dp"
-                    android:padding="16dp"
-                    android:layout_margin="16dp" />
-                <!-->android:button="@null"-->
-                </LinearLayout>
+        <RelativeLayout
+            android:layout_width="1080px"
+            android:layout_height="900px">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!--android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!--android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!--android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!--android:button="@null"-->
-                    <RadioButton
-                        android:layout_width="131px"
-                        android:layout_height="150px"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/radio_selector"
-                        android:elevation="4dp"
-                        android:padding="16dp" />
-                    <!-->android:button="@null"-->
-                </LinearLayout>
-            </RadioGroup>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="900px"
+                android:layout_height="900px"
+                android:id="@+id/recycler_view"
+                tools:listitem="@layout/item_slot"
+                app:spanCount="4"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 
-
-    </LinearLayout>
-        <!--<RadioGroup
-            android:layout_width="948px"
-            android:layout_height="200px">
-
-
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp" />
-               &lt;!&ndash;dash;&gt;android:button="@null"&ndash;&gt;
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp"/>
-                &lt;!&ndash;android:button="@null"&ndash;&gt;
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp" />
-            &lt;!&ndash;dash;&gt;android:button="@null"&ndash;&gt;
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp" />
-            &lt;!&ndash;dash;&gt;android:button="@null"&ndash;&gt;
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp" />
-            &lt;!&ndash;dash;&gt;android:button="@null"&ndash;&gt;
-            <RadioButton
-                android:layout_width="131px"
-                android:layout_height="150px"
-                android:background="@drawable/radio_selector"
-                android:elevation="4dp"
-                android:padding="16dp"
-                android:layout_margin="16dp" />
-            &lt;!&ndash;dash;&gt;android:button="@null"&ndash;&gt;
-
-
-        </RadioGroup>-->
-
-
-
-
-        <!---->
-
-
+        </RelativeLayout>
 
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Slot"
+        android:layout_marginLeft="53px"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="48px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="1410px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1A1"
+        android:id="@+id/slotDisplay"
+        android:layout_marginLeft="881px"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="48px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="1410px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_marginLeft="53px"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="48px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="1510px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs. 100 / hour"
+        android:id="@+id/priceDisplay"
+        android:layout_marginLeft="633px"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="48px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="1510px"/>
+    <Button
+        android:id="@+id/continueSlotSelection"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="600px"
+        android:layout_marginTop="1630px"
+        android:text="Continue"
+        app:cornerRadius="50px"
+        app:rippleColor="#F23B5F" />
 
 
 
