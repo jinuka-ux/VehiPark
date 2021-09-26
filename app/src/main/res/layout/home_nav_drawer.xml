@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -44,8 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
             android:src="@drawable/ic_home_vector"/>
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +70,6 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickFavourites">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -113,7 +109,6 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="ClickLogout">
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -127,8 +122,4 @@
             android:layout_marginEnd="48dp"
             android:src="@drawable/ic_logout_vector"/>
     </LinearLayout>
-
-
-
-
 </LinearLayout>

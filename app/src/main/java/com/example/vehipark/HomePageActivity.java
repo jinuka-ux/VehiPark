@@ -180,7 +180,7 @@ public class HomePageActivity extends AppCompatActivity {
     }
     public void ClickBookings(View view){
         //Redirect activity to bookings
-        redirectActivity(this,BookingDispActivity.class);
+        redirectActivity(this,example.class);
     }
     public void ClickFavourites(View view){
         //Redirect activity to Favourites
