@@ -1,14 +1,185 @@
 package com.example.vehipark;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.widget.Toolbar;
 
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+    TextView tvTimer1,tvTimer2;
+    int t1Hour,t1Minute,t2Hour,t2Minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        //Hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+        tvTimer1=findViewById(R.id.tv_timer1);
+        tvTimer2=findViewById(R.id.tv_timer2);
+
+        tvTimer1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        HomeActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                t1Hour = hourOfDay;
+                                t1Minute = minute;
+
+                                String time =t1Hour + ":" + t1Minute;
+                                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
+
+                                try {
+                                    Date date=f24Hours.parse(time);
+                                    //Initialize 12 hours time format
+                                    SimpleDateFormat f12Hours = new SimpleDateFormat("hh:mm aa");
+                                    //set selected time on textView
+                                    tvTimer1.setText(f12Hours.format(date));
+
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },12,0,false
+                );
+                //set transparent background
+                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                //Displayed previous selected time
+                timePickerDialog.updateTime(t1Hour,t1Minute);
+                //show dialog
+                timePickerDialog.show();
+            }
+        });
+        tvTimer2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        HomeActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                t2Hour = hourOfDay;
+                                t2Minute = minute;
+
+                                String time =t2Hour + ":" + t2Minute;
+                                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
+
+                                try {
+                                    Date date=f24Hours.parse(time);
+                                    //Initialize 12 hours time format
+                                    SimpleDateFormat f12Hours = new SimpleDateFormat("hh:mm aa");
+                                    //set selected time on textView
+                                    tvTimer2.setText(f12Hours.format(date));
+
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },12,0,false
+                );
+                //set transparent background
+                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                //Displayed previous selected time
+                timePickerDialog.updateTime(t2Hour,t2Minute);
+                //show dialog
+                timePickerDialog.show();
+            }
+        });
+        Button btn1=findViewById(R.id.buttonSendCode);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,SlotSelectionActivity.class));
+            }
+        });
+
+        //ToolBar
+        setSupportActionBar(toolbar);
+        //Navigation Drawer Menu
+
+        //Hide or show items
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.nav_login).setVisible(false);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        navigationView.setCheckedItem(R.id.nav_home);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_bookings:
+                Intent intent = new Intent(HomeActivity.this,BookingDispActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_history:
+                Intent intent1 = new Intent(HomeActivity.this,HistoryActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.nav_favourites:
+                Intent intent2 = new Intent(HomeActivity.this,FavouriteActivity.class);
+                startActivity(intent2);
+                break;
+
+            case R.id.nav_share:
+                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

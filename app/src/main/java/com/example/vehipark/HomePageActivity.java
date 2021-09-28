@@ -37,9 +37,10 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         //Assign variable
+        drawerLayout = findViewById(R.id.drawer_layout);
         tvTimer1=findViewById(R.id.tv_timer1);
         tvTimer2=findViewById(R.id.tv_timer2);
-        drawerLayout = findViewById(R.id.drawer_layout);
+
 
         /*tvTimer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,12 +152,13 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         }
+
         public void ClickMenu(View view){
         //open drawer
             openDrawer(drawerLayout);
         }
 
-    private static void openDrawer(DrawerLayout drawerLayout) {
+    public static void openDrawer(DrawerLayout drawerLayout) {
         //Open drawer layout
         drawerLayout.openDrawer(GravityCompat.START);
     }

@@ -1,9 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:fitsSystemWindows="true">
+<!--tools:openDrawer="start">-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"/>
+
+<!-->Testing Homeeeeeeeeee-->
+
+    <!--<RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <include
+            layout="@layout/home_nav_drawer"/>
+    </RelativeLayout>-->
+
+    <!--<ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="300px"
+        app:srcCompat="@drawable/steer" />
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="108.06px"
+        android:layout_height="117.94px"
+        android:layout_marginLeft="900px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="10px"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/notification" />
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="174px"
+        android:layout_height="140px"
+        android:layout_marginTop="10px"
+        app:srcCompat="@drawable/hamburgerblack" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="420px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="20px"
+        android:shadowColor="#000000"
+        android:text="VehiPark"
+        android:textColor="#000000"
+        android:textSize="72px" />-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<include
+            layout="@layout/home_toolbar"
+            android:id="@+id/toolbar"/>-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/hamburgerblack"/>
+
+
+        <!--<ImageView
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="50px"
+            android:src="@drawable/steer"/>
+        <TextView
+            android:layout_width="390px"
+            android:layout_height="wrap_content"
+            android:text="VehiPark"
+            android:textSize="72px"
+            android:textStyle="normal"
+            android:fontFamily="@font/poppins"
+            android:textAlignment="center"
+            android:textColor="@color/black"/>
+        <ImageView
+            android:layout_width="108.06px"
+            android:layout_height="117.94px"
+            android:layout_marginLeft="150px"
+            android:src="@drawable/notification"/>-->
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="300px"
+            app:srcCompat="@drawable/steer" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="420px"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="23dp"
+            android:shadowColor="#000000"
+            android:text="VehiPark"
+            android:textColor="#000000"
+            android:textSize="72px" />
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="108.06px"
+            android:layout_height="117.94px"
+            android:layout_marginLeft="900px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="10px"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/notification" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-12dp"
+            app:srcCompat="@drawable/bottom" />
+        <TextView
+            android:id="@+id/textViewHelp"
+            android:layout_width="103dp"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="800px"
+            android:drawableStart="@drawable/ic_help_vector"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Help"
+            android:textColor="#ffffff"
+            android:textSize="64px"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/textDes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:layout_marginTop="180px"
+            android:shadowColor="#000000"
+            android:layout_marginLeft="25px"
+            android:text="Where do you\nwant to park?"
+            android:textColor="#000000"
+            android:textSize="72px" />
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="180px"
+            app:srcCompat="@drawable/user" />
+        <EditText
+            android:id="@+id/editSearchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_marginTop="430px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:background="@drawable/custom_input2"
+            android:drawableStart="@drawable/search1"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Search location"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColorHint="@color/white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170px"
+            android:layout_marginTop="570px"
+            android:fontFamily="@font/poppins"
+            android:text="From"
+            android:textColor="@color/black"
+            android:textSize="60px"
+            android:textStyle="normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="775px"
+            android:layout_marginTop="570px"
+            android:fontFamily="@font/poppins"
+            android:text="To"
+            android:textColor="@color/black"
+            android:textSize="60px"
+            android:textStyle="normal"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="660px"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_timer1"
+                android:layout_width="400px"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:drawableTop="@drawable/ic_time"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:layout_marginLeft="50px"
+                android:textColorHighlight="@color/AppBlue"
+                android:hint="Select time"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_compare_arrows_24"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20px"/>
+            <TextView
+                android:id="@+id/tv_timer2"
+                android:layout_width="400px"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:drawableTop="@drawable/ic_time"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:hint="Select time"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="900px"
+            android:gravity="center">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="288px"
+                    android:layout_height="282.57px"
+                    android:background="@drawable/radio_selector"
+                    android:textColor="@drawable/radio_text_color"
+                    android:drawableStart="@drawable/ic_car"
+                    android:elevation="4dp"
+                    android:padding="16dp"
+                    android:layout_margin="16dp"/>
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="Vehicle\nType"
+                    android:textSize="64px"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black">
+                </TextView>
+                <RadioButton
+                    android:layout_width="288px"
+                    android:layout_height="282.57px"
+                    android:background="@drawable/radio_selector"
+                    android:textColor="@drawable/radio_text_color"
+                    android:drawableStart="@drawable/ic_bike"
+                    android:elevation="4dp"
+                    android:padding="16dp"
+                    android:layout_margin="16dp"/>
+            </RadioGroup>
+        </LinearLayout>
+        <Button
+            android:id="@+id/buttonSendCode"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1250px"
+            android:text="Continue"
+            app:cornerRadius="50px"
+            app:rippleColor="#F23B5F" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="980px"
+            android:layout_height="400px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1400px"
+            android:layout_marginBottom="70px"
+            app:srcCompat="@drawable/homepic" />
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
