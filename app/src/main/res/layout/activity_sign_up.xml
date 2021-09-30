@@ -37,7 +37,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/firstname_input_signup"
+        android:id="@+id/regName"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_marginTop="570px"
@@ -46,7 +46,9 @@
         android:drawablePadding="12dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:text=" " />
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+        android:text=""
+        android:inputType="textCapWords"/>
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/lastname_input_signup"
+        android:id="@+id/regAddress"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_marginTop="770px"
@@ -67,7 +69,7 @@
         android:drawablePadding="12dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:text=" " />
+        android:text="" />
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -79,7 +81,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/username_input_signup"
+        android:id="@+id/regContact"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_marginTop="970px"
@@ -88,7 +90,9 @@
         android:drawablePadding="12dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:text=" " />
+        android:digits="0123456789"
+        android:maxLength="10"
+        android:text="" />
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -100,7 +104,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/address_input_signup"
+        android:id="@+id/regEmail"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_marginTop="1170px"
@@ -109,7 +113,8 @@
         android:drawablePadding="12dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:text=" " />
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.1234567890"
+        android:text="" />
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
@@ -121,7 +126,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/editTextPasswordSignUp"
+        android:id="@+id/regPassword"
         android:layout_width="match_parent"
         android:ems="10"
         android:inputType="textPassword"
@@ -145,7 +150,7 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <EditText
-        android:id="@+id/editTextConfirmPassword"
+        android:id="@+id/regConfirmPassword"
         android:layout_width="match_parent"
         android:ems="10"
         android:inputType="textPassword"
@@ -159,7 +164,7 @@
         android:drawablePadding="12dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUpButton"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="599px"
@@ -179,7 +184,7 @@
         android:textColor="#000000"
         android:textSize="36px" />
     <TextView
-        android:id="@+id/textViewLogIn"
+        android:id="@+id/regBackLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="320px"

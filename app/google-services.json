@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "768290039385",
+    "project_id": "vehipark-62a1f",
+    "storage_bucket": "vehipark-62a1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768290039385:android:f8a282dd3da3587d51f348",
+        "android_client_info": {
+          "package_name": "com.example.vehipark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768290039385-i3begqied4a5apkit9ha9gk8m8pdft96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoDJMp24CIgGcKiyO07vMjzkxjG3LVxyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768290039385-i3begqied4a5apkit9ha9gk8m8pdft96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
