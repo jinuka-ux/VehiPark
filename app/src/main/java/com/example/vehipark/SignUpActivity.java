@@ -16,6 +16,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -27,8 +33,11 @@ public class SignUpActivity extends AppCompatActivity {
     TextView regContact;
     TextView regAddress;
     Button regButton;
-    FirebaseAuth mAuth;
 
+    FirebaseAuth mAuth;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,18 +53,22 @@ public class SignUpActivity extends AppCompatActivity {
         regAddress = findViewById(R.id.regAddress);
 
         mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users");
 
-        regButton.setOnClickListener(view ->{
+
+        regButton.setOnClickListener(view -> {
             createUser();
         });
         regBackLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this,LogInActivity.class));
+                startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
             }
         });
     }
-    private void createUser() {
+
+    public void createUser() {
         String email = regEmail.getText().toString();
         String password = regPassword.getText().toString();
         String confirmPassword = regConfirmPassword.getText().toString();
@@ -63,19 +76,20 @@ public class SignUpActivity extends AppCompatActivity {
         String contact = regContact.getText().toString();
         String address = regAddress.getText().toString();
 
-        if(TextUtils.isEmpty(name)){
+
+        if (TextUtils.isEmpty(name)) {
             regName.setError("Name cannot be empty");
             regName.requestFocus();
         }
-        if(TextUtils.isEmpty(address)) {
+        if (TextUtils.isEmpty(address)) {
             regEmail.setError("address cannot be Empty");
             regEmail.requestFocus();
         }
-        if(TextUtils.isEmpty(contact)) {
+        if (TextUtils.isEmpty(contact)) {
             regEmail.setError("contact cannot be Empty");
             regEmail.requestFocus();
         }
-        if(TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(email)) {
             regEmail.setError("Email cannot be Empty");
             regEmail.requestFocus();
         }
@@ -86,14 +100,31 @@ public class SignUpActivity extends AppCompatActivity {
         if (!confirmPassword.equals(password)) {
             regConfirmPassword.setError("Passwords does not Match");
             regConfirmPassword.requestFocus();
-        }
-        else{
+        } else {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, HomePageActivity.class));
+                        user =  FirebaseAuth.getInstance().getCurrentUser();
+                        String uId =user.getUid();
+                        Users users = new Users(email,name,contact,address,uId);
+                        databaseReference.child(uId).setValue(users);
+                        databaseReference.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(SignUpActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        //database.child("Users").setValue(users);
+
                     } else {
                         Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -101,5 +132,4 @@ public class SignUpActivity extends AppCompatActivity {
             });
         }
     }
-
 }
