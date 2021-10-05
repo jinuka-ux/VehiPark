@@ -99,15 +99,18 @@ public class SignUpActivity extends AppCompatActivity {
             regConfirmPassword.setError("Passwords does not Match");
             regConfirmPassword.requestFocus();
         } else {
-            Users users = new Users(email,name,contact,address);
+
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                        // user = FirebaseAuth.getInstance().getCurrentUser();
                         //String uId= user.getUid();
+                        Users users = new Users(email,name,contact,address);
                         myRef.setValue(users);
-                        myRef.addValueEventListener(new ValueEventListener() {
+                        Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
+                        /* myRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
@@ -118,7 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onCancelled(@NonNull DatabaseError error) {
                                 Toast.makeText(SignUpActivity.this, "failed", Toast.LENGTH_SHORT).show();
                             }
-                        });
+                        });*/
                     } else {
                         Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

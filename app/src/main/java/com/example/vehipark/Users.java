@@ -1,6 +1,6 @@
 package com.example.vehipark;
 
-public class Users {
+public class Users extends SignUpActivity {
 
     private String name;
     private String address;
