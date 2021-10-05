@@ -35,9 +35,9 @@ public class SignUpActivity extends AppCompatActivity {
     Button regButton;
 
     FirebaseAuth mAuth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
-    private FirebaseUser user;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Users");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +53,6 @@ public class SignUpActivity extends AppCompatActivity {
         regAddress = findViewById(R.id.regAddress);
 
         mAuth = FirebaseAuth.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Users");
 
 
         regButton.setOnClickListener(view -> {
@@ -101,18 +99,17 @@ public class SignUpActivity extends AppCompatActivity {
             regConfirmPassword.setError("Passwords does not Match");
             regConfirmPassword.requestFocus();
         } else {
+            Users users = new Users(email,name,contact,address);
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        user =  FirebaseAuth.getInstance().getCurrentUser();
-                        String uId =user.getUid();
-                        Users users = new Users(email,name,contact,address,uId);
-                        databaseReference.child(uId).setValue(users);
-                        databaseReference.addValueEventListener(new ValueEventListener() {
+                       // user = FirebaseAuth.getInstance().getCurrentUser();
+                        //String uId= user.getUid();
+                        myRef.setValue(users);
+                        myRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                 Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
                             }
@@ -122,9 +119,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, "failed", Toast.LENGTH_SHORT).show();
                             }
                         });
-
-                        //database.child("Users").setValue(users);
-
                     } else {
                         Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

@@ -6,18 +6,18 @@ public class Users {
     private String address;
     private String contact;
     private String email;
-    private String uId;
+
 
     public Users(){
 
     }
 
-    public Users(String name, String address, String contact, String email, String uId) {
+    public Users(String name, String address, String contact, String email) {
         this.name = name;
         this.address = address;
         this.contact = contact;
         this.email = email;
-        this.uId = uId;
+
     }
 
 
