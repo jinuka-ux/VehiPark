@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +35,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     TextView tvTimer1,tvTimer2;
     int t1Hour,t1Minute,t2Hour,t2Minute;
+    FirebaseAuth mauth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         tvTimer1=findViewById(R.id.tv_timer1);
         tvTimer2=findViewById(R.id.tv_timer2);
+        mauth = FirebaseAuth.getInstance();
+
+        String email = mauth.getCurrentUser().getEmail();
+        Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
 
         tvTimer1.setOnClickListener(new View.OnClickListener() {
             @Override

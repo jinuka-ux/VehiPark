@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,18 +64,19 @@ public class SignUpActivity extends AppCompatActivity {
         String contact = regContact.getText().toString();
         String address = regAddress.getText().toString();
 
-        if(TextUtils.isEmpty(name)){
+        /*if(TextUtils.isEmpty(name)){
             regName.setError("Name cannot be empty");
             regName.requestFocus();
-        }
-        if(TextUtils.isEmpty(address)) {
+        }*/
+        /*if(TextUtils.isEmpty(address)) {
             regEmail.setError("address cannot be Empty");
             regEmail.requestFocus();
-        }
-        if(TextUtils.isEmpty(contact)) {
+        }*/
+        // TODO: wrong text field
+        /*if(TextUtils.isEmpty(contact)) {
             regEmail.setError("contact cannot be Empty");
             regEmail.requestFocus();
-        }
+        }*/
         if(TextUtils.isEmpty(email)) {
             regEmail.setError("Email cannot be Empty");
             regEmail.requestFocus();
@@ -87,7 +89,27 @@ public class SignUpActivity extends AppCompatActivity {
             regConfirmPassword.setError("Passwords does not Match");
             regConfirmPassword.requestFocus();
         }
-        else{
+
+        try{
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignUpActivity.this, HomePageActivity.class));
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        // TODO: Bihans's code
+        /*else{
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -100,7 +122,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             });
 
-            }
+            }*/
         }
 
 }
