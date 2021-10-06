@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "944615601070",
+    "project_id": "vehipark-ad54e",
+    "storage_bucket": "vehipark-ad54e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944615601070:android:b6d5573d361cbf34c54e3f",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944615601070-4ljbb5sj6v5h7umlsflh6pih5jf4dve8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHEW5MROW3vjtarskZ9ogOomo-THB8Hqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944615601070-4ljbb5sj6v5h7umlsflh6pih5jf4dve8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944615601070:android:7f781ee0f3a8fc45c54e3f",
+        "android_client_info": {
+          "package_name": "com.example.vehipark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944615601070-4ljbb5sj6v5h7umlsflh6pih5jf4dve8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHEW5MROW3vjtarskZ9ogOomo-THB8Hqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944615601070-4ljbb5sj6v5h7umlsflh6pih5jf4dve8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
