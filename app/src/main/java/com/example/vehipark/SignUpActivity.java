@@ -96,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, HomePageActivity.class));
+                        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -108,21 +108,6 @@ public class SignUpActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        // TODO: Bihans's code
-        /*else{
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, HomePageActivity.class));
-                    } else {
-                        Toast.makeText(SignUpActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-            }*/
         }
 
 }
