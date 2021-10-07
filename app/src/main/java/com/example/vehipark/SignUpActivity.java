@@ -14,12 +14,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 //import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -33,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
     TextView regAddress;
     Button regButton;
     FirebaseAuth mAuth;
+    FirebaseFirestore fstore;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -48,20 +53,22 @@ public class SignUpActivity extends AppCompatActivity {
         regName = findViewById(R.id.regName);
         regContact = findViewById(R.id.regContact);
         regAddress = findViewById(R.id.regAddress);
-
+        fstore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        regButton.setOnClickListener(view ->{
+        regButton.setOnClickListener(view -> {
             createUser();
 
         });
-       regBackLogin.setOnClickListener(new View.OnClickListener() {
+        regBackLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this,LogInActivity.class));
+                startActivity(new Intent(SignUpActivity.this, LogInActivity.class));
             }
         });
     }
+
     private void createUser() {
 
         String email = regEmail.getText().toString();
@@ -71,20 +78,20 @@ public class SignUpActivity extends AppCompatActivity {
         String contact = regContact.getText().toString();
         String address = regAddress.getText().toString();
 
-        if(TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             regName.setError("Name cannot be empty");
             regName.requestFocus();
         }
-        if(TextUtils.isEmpty(address)) {
+        if (TextUtils.isEmpty(address)) {
             regEmail.setError("address cannot be Empty");
             regEmail.requestFocus();
         }
         // TODO: wrong text field
-        if(TextUtils.isEmpty(contact)) {
+        if (TextUtils.isEmpty(contact)) {
             regEmail.setError("contact cannot be Empty");
             regEmail.requestFocus();
         }
-        if(TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(email)) {
             regEmail.setError("Email cannot be Empty");
             regEmail.requestFocus();
         }
@@ -97,14 +104,42 @@ public class SignUpActivity extends AppCompatActivity {
             regConfirmPassword.requestFocus();
         }
 
+        /*try {
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            Users users = new Users(name, address, contact, email);
+                            String userID = mAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fstore.collection("Users").document(userID);
+                            documentReference.set(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    Intent in = new Intent(SignUpActivity.this, HomeActivity.class);
+                                    startActivity(in);
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } catch (Exception e) {
+            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }*/
+
         try{
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Users users = new Users(name,address,contact,email);
-                        FirebaseDatabase.getInstance().getReference("Users")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        mDatabase
+                                .child("Users").child(mAuth.getCurrentUser().getUid())
                                 .setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -128,4 +163,5 @@ public class SignUpActivity extends AppCompatActivity {
         }
         }
 
-}
+    }
+
