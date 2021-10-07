@@ -13,10 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
+//import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
     TextView regAddress;
     Button regButton;
     FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         regButton.setOnClickListener(view ->{
             createUser();
+
         });
        regBackLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
     private void createUser() {
+
         String email = regEmail.getText().toString();
         String password = regPassword.getText().toString();
         String confirmPassword = regConfirmPassword.getText().toString();
@@ -64,19 +71,19 @@ public class SignUpActivity extends AppCompatActivity {
         String contact = regContact.getText().toString();
         String address = regAddress.getText().toString();
 
-        /*if(TextUtils.isEmpty(name)){
+        if(TextUtils.isEmpty(name)){
             regName.setError("Name cannot be empty");
             regName.requestFocus();
-        }*/
-        /*if(TextUtils.isEmpty(address)) {
+        }
+        if(TextUtils.isEmpty(address)) {
             regEmail.setError("address cannot be Empty");
             regEmail.requestFocus();
-        }*/
+        }
         // TODO: wrong text field
-        /*if(TextUtils.isEmpty(contact)) {
+        if(TextUtils.isEmpty(contact)) {
             regEmail.setError("contact cannot be Empty");
             regEmail.requestFocus();
-        }*/
+        }
         if(TextUtils.isEmpty(email)) {
             regEmail.setError("Email cannot be Empty");
             regEmail.requestFocus();
@@ -95,18 +102,29 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+                        Users users = new Users(name,address,contact,email);
+                        FirebaseDatabase.getInstance().getReference("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(SignUpActivity.this, "Sucessful", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+
+                                }else{
+                                    Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+                    }else{
+                        Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_LONG).show();
                     }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }catch (Exception e){
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
         }
 
