@@ -104,7 +104,7 @@ public class SignUpActivity extends AppCompatActivity {
             regConfirmPassword.requestFocus();
         }
 
-        /*try {
+        try {
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
@@ -130,9 +130,9 @@ public class SignUpActivity extends AppCompatActivity {
                     });
         } catch (Exception e) {
             Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
-        try{
+        /*try{
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -160,7 +160,7 @@ public class SignUpActivity extends AppCompatActivity {
             });
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-        }
+        }*/
         }
 
     }
