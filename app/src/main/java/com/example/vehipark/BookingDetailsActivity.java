@@ -32,7 +32,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookingDetailsActivity.this,HomePageActivity.class));
+                startActivity(new Intent(BookingDetailsActivity.this,HomeActivity.class));
             }
         });
         }

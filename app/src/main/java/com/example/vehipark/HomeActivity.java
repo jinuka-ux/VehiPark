@@ -180,11 +180,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_favourites:
                 Intent intent2 = new Intent(HomeActivity.this,FavouriteActivity.class);
                 startActivity(intent2);
+            case R.id.nav_settings:
+                Intent intent3 = new Intent(HomeActivity.this,SettingssActivity.class);
+                startActivity(intent3);
                 break;
-
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
+
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
