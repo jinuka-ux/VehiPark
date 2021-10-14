@@ -5,30 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class SettingssActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settingss);
-        ImageView btn1=findViewById(R.id.imageView10);
+        setContentView(R.layout.activity_change_password);
+
+        TextView btn1=findViewById(R.id.clickHere);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SettingssActivity.this,HomeActivity.class));
+                startActivity(new Intent(ChangePasswordActivity.this,ForgotPasswordActivity.class));
             }
         });
 
-        TextView btn2=findViewById(R.id.clickHere);
+        Button btn2=findViewById(R.id.buttonReset);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SettingssActivity.this,ChangePasswordActivity.class));
+                startActivity(new Intent(ChangePasswordActivity.this,PasswordUpdatedActivity.class));
             }
         });
     }

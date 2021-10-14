@@ -168,15 +168,16 @@
         android:textColor="#000000"
         android:textSize="48px" />
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/clickHere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="540px"
-        android:layout_marginTop="1200px"
+        android:layout_marginLeft="530px"
+        android:layout_marginTop="1210px"
         android:fontFamily="@font/montserrat"
-        android:text="Click Here"
-        android:textColor="#000000"
-        android:textSize="48px" />
+        android:text="Click here"
+        android:textColor="#FF0000"
+        android:textSize="36px" />
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="151dp"
