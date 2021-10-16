@@ -59,23 +59,6 @@ public class SettingssActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        //Display Data
-        String userID = mAuth.getCurrentUser().getUid();
-        DocumentReference docRef = fstore.collection("Users").document(userID);
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Users user = documentSnapshot.toObject(Users.class);
-                //String  nam = ;
-                regName.setText(user.name);
-                regAddress.setText(user.address);
-                regContact.setText(user.contact);
-                regEmail.setText(user.email);
-               // String contact = regContact.getText().toString();
-                //String address = regAddress.getText().toString();
-            }
-        });
-
         String email = regEmail.getText().toString();
         String name = regName.getText().toString();
         String contact = regContact.getText().toString();
@@ -139,6 +122,30 @@ public class SettingssActivity extends AppCompatActivity {
             }
         });*/
 
-
     }
+
+    public void displayData() {
+        String userID = mAuth.getCurrentUser().getUid();
+        DocumentReference docRef = fstore.collection("Users").document(userID);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Users user = documentSnapshot.toObject(Users.class);
+                //String  nam = ;
+                regName.setText(user.name);
+                regAddress.setText(user.address);
+                regContact.setText(user.contact);
+                regEmail.setText(user.email);
+                // String contact = regContact.getText().toString();
+                //String address = regAddress.getText().toString();
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        displayData();
+    }
+
 }
