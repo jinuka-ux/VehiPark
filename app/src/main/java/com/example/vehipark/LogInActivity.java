@@ -69,6 +69,13 @@ public class LogInActivity extends AppCompatActivity {
         clickHere.setOnClickListener(view ->{
             startActivity(new Intent(LogInActivity.this, ForgotPasswordActivity.class));
         });
+
+        if(mAuth.getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+            finish();
+        }
+
+
     }
 
 }
