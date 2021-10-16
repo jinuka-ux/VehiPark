@@ -57,7 +57,7 @@ public class SettingssActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
+        //Display Data
         String userID = mAuth.getCurrentUser().getUid();
         DocumentReference docRef = fstore.collection("Users").document(userID);
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -79,12 +79,11 @@ public class SettingssActivity extends AppCompatActivity {
         String contact = regContact.getText().toString();
         String address = regAddress.getText().toString();
 
+        //Update data
         applyButton.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
-                DocumentReference doc= fstore.collection("Users").document(userID);
+                /*DocumentReference doc= fstore.collection("Users").document(userID);
                 doc
                         .update("address", address)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -98,7 +97,34 @@ public class SettingssActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(SettingssActivity.this, "Failes", Toast.LENGTH_LONG).show();
                             }
+                        });*/
+                final DocumentReference doc= fstore.collection("Users").document(userID);
+                fstore.runTransaction(new Transaction.Function<Void>() {
+                    @Override
+                    public Void apply(Transaction transaction) throws FirebaseFirestoreException {
+                        DocumentSnapshot snapshot = transaction.get(sfDocRef);
+                        transaction.update(sfDocRef,"name",name);
+                        transaction.update(sfDocRef,"address",address);
+                        transaction.update(sfDocRef,"email",email);
+                        transaction.update(sfDocRef,"contact",contact);
+                        return null;
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid)
+                    {
+                        Toast.makeText(getApplicationContext(),"Update Successfull",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(),"Update Unsuccessfull",Toast.LENGTH_SHORT).show();
+                            }
                         });
+            }
+
+
             }
             });
 
