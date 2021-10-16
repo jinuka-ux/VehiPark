@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         regPassword = findViewById(R.id.regPassword);
         regConfirmPassword = findViewById(R.id.regConfirmPassword);
         regBackLogin = findViewById(R.id.regBackLogin);
-        regButton = findViewById(R.id.signUpButton);
+        regButton = findViewById(R.id.applyButton);
         regName = findViewById(R.id.regName);
         regContact = findViewById(R.id.regContact);
         regAddress = findViewById(R.id.regAddress);

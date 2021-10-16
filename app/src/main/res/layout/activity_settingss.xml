@@ -179,7 +179,7 @@
         android:textSize="36px" />
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/applyButton"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="599px"
