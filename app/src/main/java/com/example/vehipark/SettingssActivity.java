@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Transaction;
 
 import org.w3c.dom.Text;
 
@@ -58,7 +60,21 @@ public class SettingssActivity extends AppCompatActivity {
 
 
         //Display Data
-
+        String userID = mAuth.getCurrentUser().getUid();
+        DocumentReference docRef = fstore.collection("Users").document(userID);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Users user = documentSnapshot.toObject(Users.class);
+                //String  nam = ;
+                regName.setText(user.name);
+                regAddress.setText(user.address);
+                regContact.setText(user.contact);
+                regEmail.setText(user.email);
+               // String contact = regContact.getText().toString();
+                //String address = regAddress.getText().toString();
+            }
+        });
 
         String email = regEmail.getText().toString();
         String name = regName.getText().toString();
@@ -88,11 +104,11 @@ public class SettingssActivity extends AppCompatActivity {
                 fstore.runTransaction(new Transaction.Function<Void>() {
                     @Override
                     public Void apply(Transaction transaction) throws FirebaseFirestoreException {
-                        DocumentSnapshot snapshot = transaction.get(sfDocRef);
-                        transaction.update(sfDocRef,"name",name);
-                        transaction.update(sfDocRef,"address",address);
-                        transaction.update(sfDocRef,"email",email);
-                        transaction.update(sfDocRef,"contact",contact);
+                        DocumentSnapshot snapshot = transaction.get(doc);
+                        transaction.update(doc,"name",name);
+                        transaction.update(doc,"address",address);
+                        transaction.update(doc,"email",email);
+                        transaction.update(doc,"contact",contact);
                         return null;
                     }
                 }).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -125,27 +141,4 @@ public class SettingssActivity extends AppCompatActivity {
 
 
     }
-
-    public  void didplayData() {
-        String userID = mAuth.getCurrentUser().getUid();
-        DocumentReference docRef = fstore.collection("Users").document(userID);
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Users user = documentSnapshot.toObject(Users.class);
-                //String  nam = ;
-                regName.setText(user.name);
-                regAddress.setText(user.address);
-                regContact.setText(user.contact);
-                regEmail.setText(user.email);
-                // String contact = regContact.getText().toString();
-                //String address = regAddress.getText().toString();
-            }
-        });
-    }
-    public void onStart() {
-        super.onStart();
-        didplayData();
-    }
-
 }
