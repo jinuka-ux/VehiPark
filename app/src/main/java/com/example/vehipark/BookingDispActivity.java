@@ -24,6 +24,13 @@ public class BookingDispActivity extends AppCompatActivity {
                 startActivity(new Intent(BookingDispActivity.this,HomeActivity.class));
             }
         });
+        Button btn2=findViewById(R.id.button);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BookingDispActivity.this,CustomSpinner.class));
+            }
+        });
 
     }
 }

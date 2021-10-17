@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VehiPark">
-        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".CustomSpinner"></activity>
+        <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".SettingssActivity" />
         <activity android:name=".example" />
         <activity android:name=".BookingDispActivity" />
