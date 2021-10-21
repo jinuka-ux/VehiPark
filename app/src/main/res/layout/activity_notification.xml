@@ -62,10 +62,16 @@
         android:textColor="#000000"
         android:layout_marginLeft="50px"
         android:textSize="80px" />
+    <ImageView
+        android:layout_width="228px"
+        android:layout_height="174px"
+        android:src="@drawable/notify"
+        android:layout_marginTop="160px"
+        android:layout_marginLeft="600px"/>
     <ScrollView
         android:layout_width="980px"
         android:layout_height="1470px"
-        android:layout_marginTop="300px"
+        android:layout_marginTop="320px"
         android:layout_centerHorizontal="true">
         <RelativeLayout
             android:layout_width="980px"
@@ -73,32 +79,32 @@
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
-                android:src="@drawable/fav2"/>
+                android:src="@drawable/notify1"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="250px"
-                android:src="@drawable/fav1"/>
+                android:src="@drawable/notify2"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="500px"
-                android:src="@drawable/fav2"/>
+                android:src="@drawable/notify1"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="750px"
-                android:src="@drawable/fav1"/>
+                android:src="@drawable/notify2"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1000px"
-                android:src="@drawable/fav2"/>
+                android:src="@drawable/notify1"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1250px"
-                android:src="@drawable/fav1"/>
+                android:src="@drawable/notify2"/>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
