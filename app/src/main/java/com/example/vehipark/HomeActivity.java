@@ -7,16 +7,23 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -30,6 +37,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +49,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     int t1Hour,t1Minute,t2Hour,t2Minute;
     FirebaseAuth mauth;
     FirebaseFirestore fstore;
+    TextView textView;
+    ArrayList<String> arrayList;
+    Dialog dialog;
 
 
     @Override
@@ -50,6 +61,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
         //Hooks
+        textView = findViewById(R.id.text_view);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
@@ -72,6 +84,74 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 //
             }
         });*/
+        arrayList = new ArrayList<>();
+        //Add value in array list
+        arrayList.add("Park A");
+        arrayList.add("Park B");
+        arrayList.add("Park C");
+        arrayList.add("Park D");
+        arrayList.add("Park E");
+        arrayList.add("Park F");
+        arrayList.add("Park G");
+        arrayList.add("Park H");
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                                            //Initialize dialog
+                                            dialog = new Dialog(HomeActivity.this);
+                                            //Set custom dialog
+                                            dialog.setContentView(R.layout.dialog_searchable_spinner);
+                                            //Set custom height and width
+                                            dialog.getWindow().setLayout(650, 800);
+                                            //Set transparent background
+                                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                                            //Show dialog
+                                            dialog.show();
+
+                                            //Initialize and assign variable
+                                            EditText editText = dialog.findViewById(R.id.edit_text);
+                                            ListView listView = dialog.findViewById(R.id.list_view);
+
+                                            //Initialize array adapter
+                                            ArrayAdapter adapter = new ArrayAdapter<>(HomeActivity.this,
+                                                    android.R.layout.simple_list_item_1, arrayList);
+                                            //Set adapter
+                                            listView.setAdapter(adapter);
+
+                                            editText.addTextChangedListener(new TextWatcher() {
+                                                @Override
+                                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                                                }
+
+                                                @Override
+                                                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                                    //Filter array list
+                                                    adapter.getFilter().filter(s);
+
+                                                }
+
+                                                @Override
+                                                public void afterTextChanged(Editable s) {
+
+                                                }
+                                            });
+                                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                                @Override
+                                                public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                                                    //When item selected from list
+                                                    //Set selected item on text view
+                                                    textView.setText((String) adapter.getItem(i));
+                                                    //Dismiss dialog
+                                                    dialog.dismiss();
+                                                }
+                                            });
+
+
+                                        }
+                                    }
+        );
 
         tvTimer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,8 +297,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
-
-
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

@@ -163,7 +163,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="180px"
             app:srcCompat="@drawable/user" />
-        <EditText
+        <!--<EditText
             android:id="@+id/editSearchLocation"
             android:layout_width="match_parent"
             android:layout_height="120px"
@@ -178,7 +178,21 @@
             android:hint="Search location"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:textColorHint="@color/white" />
+            android:textColorHint="@color/white" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:id="@+id/text_view"
+            android:layout_marginTop="430px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:textStyle="bold"
+            android:hint="Select park"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:background="@android:drawable/editbox_background">
+        </TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

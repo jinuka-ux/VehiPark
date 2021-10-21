@@ -109,7 +109,7 @@ public class SlotSelectionActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SlotSelectionActivity.this,HomePageActivity.class));
+                startActivity(new Intent(SlotSelectionActivity.this,HomeActivity.class));
             }
         });
         Button btn1=findViewById(R.id.continueSlotSelection);
