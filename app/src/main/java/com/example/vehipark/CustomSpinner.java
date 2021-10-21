@@ -90,7 +90,7 @@ public class CustomSpinner extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                         //When item selected from list
                         //Set selected item on text view
-                        textView.setText((Integer) adapter.getItem(i));
+                        textView.setText((String) adapter.getItem(i));
                         //Dismiss dialog
                         dialog.dismiss();
                     }

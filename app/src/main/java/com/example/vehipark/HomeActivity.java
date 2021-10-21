@@ -21,8 +21,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,9 +37,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    TextView tvTimer1,tvTimer2;
+    TextView tvTimer1,tvTimer2, mail;
     int t1Hour,t1Minute,t2Hour,t2Minute;
     FirebaseAuth mauth;
+    FirebaseFirestore fstore;
 
 
     @Override
@@ -50,10 +55,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         tvTimer1=findViewById(R.id.tv_timer1);
         tvTimer2=findViewById(R.id.tv_timer2);
-        mauth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
 
-        String email = mauth.getCurrentUser().getEmail();
-        Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
+        mauth = FirebaseAuth.getInstance();
+        String userID = mauth.getCurrentUser().getUid();
+
+        String currentEmail = mauth.getCurrentUser().getEmail();
+        Toast.makeText(getApplicationContext(),currentEmail,Toast.LENGTH_SHORT).show();
+
+        /*fstore.collection("Users").document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                String currentName = task.getResult().getString("name");
+                //name.setText(currentName);
+                //
+            }
+        });*/
 
         tvTimer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +160,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //Hide or show items
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_login).setVisible(false);
+        //mail = (TextView) menu.findItem(R.id.emailID);
+
+
+
+        //name = findViewById(R.id.nameID);
+        //mail = findViewById(R.id.emailID);
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
@@ -180,9 +204,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_favourites:
                 Intent intent2 = new Intent(HomeActivity.this,FavouriteActivity.class);
                 startActivity(intent2);
+                break;
             case R.id.nav_settings:
                 Intent intent3 = new Intent(HomeActivity.this,SettingssActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.nav_logout:
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, "Successfully logged out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),LogInActivity.class));
                 break;
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
