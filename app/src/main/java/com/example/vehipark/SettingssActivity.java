@@ -37,6 +37,7 @@ public class SettingssActivity extends AppCompatActivity {
     EditText regContact;
     EditText regAddress;
     Button applyButton;
+    TextView click;
     FirebaseFirestore fstore;
     FirebaseAuth mAuth;
 
@@ -52,6 +53,7 @@ public class SettingssActivity extends AppCompatActivity {
         regContact = findViewById(R.id.regContact);
         regAddress = findViewById(R.id.regAddress);
         applyButton =findViewById(R.id.applyButton);
+        click =findViewById(R.id.click);
         fstore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -60,6 +62,13 @@ public class SettingssActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 update();
+            }
+        });
+
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingssActivity.this,NewCredentialsActivity.class));
             }
         });
 

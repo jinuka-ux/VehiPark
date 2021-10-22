@@ -168,8 +168,9 @@
         android:text="Change password?"
         android:textColor="#000000"
         android:textSize="48px" />
+
     <TextView
-        android:id="@+id/clickHere"
+        android:id="@+id/click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="530px"
