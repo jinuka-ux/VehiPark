@@ -75,31 +75,105 @@
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:src="@drawable/faqq"/>
+
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="40px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="How to change the current password?"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
+
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="250px"
                 android:src="@drawable/faqa"/>
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="300px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="Go to Settings -> Go to Change Password"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="500px"
                 android:src="@drawable/faqq"/>
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="560px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="How to change Your Profile?"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="750px"
                 android:src="@drawable/faqa"/>
+            <TextView
+                android:id="@+id/t4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="860px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="Go to Settings"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1000px"
                 android:src="@drawable/faqq"/>
+            <TextView
+                android:id="@+id/t5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="1040px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="How to make a booking?"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1250px"
                 android:src="@drawable/faqa"/>
+            <TextView
+                android:id="@+id/t6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200px"
+                android:layout_marginTop="1340px"
+                android:fontFamily="@font/poppins"
+                android:shadowColor="#000000"
+                android:text="Go to Home"
+                android:textColor="#000000"
+                android:textSize="68px"
+                android:textStyle="" />
 
 
 
