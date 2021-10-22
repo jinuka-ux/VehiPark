@@ -240,6 +240,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(HomeActivity.this,NotificationActivity.class));
             }
         });
+        TextView btn3=findViewById(R.id.textViewHelp);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,FAQActivity.class));
+            }
+        });
 
         //ToolBar
         setSupportActionBar(toolbar);
