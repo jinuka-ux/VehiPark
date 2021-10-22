@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrivacyPolicyActivity">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-12dp"
+        app:srcCompat="@drawable/bottom" />
+    <TextView
+        android:id="@+id/textViewHelp"
+        android:layout_width="103dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="800px"
+        android:drawableStart="@drawable/ic_help_vector"
+        android:layout_marginBottom="0dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="Help"
+        android:textColor="#ffffff"
+        android:textSize="64px"
+        android:textStyle="normal" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="300px"
+        app:srcCompat="@drawable/steer" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="174px"
+        android:layout_height="140px"
+        android:layout_marginTop="10px"
+        app:srcCompat="@drawable/back" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="420px"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="20px"
+        android:shadowColor="#000000"
+        android:text="VehiPark"
+        android:textColor="#000000"
+        android:textSize="72px" />
+    <TextView
+        android:id="@+id/textDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="180px"
+        android:shadowColor="#000000"
+        android:text="Privacy Policy"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="50px"
+        android:textSize="50px" />
+    <ScrollView
+        android:layout_width="980px"
+        android:layout_height="1470px"
+        android:layout_marginTop="300px"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="980px"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Intake 37 Software Group 3 built the VehiPark Vehicle Parking Management System app as an Open Source app. This SERVICE is provided by Intake 37 Software Group 3 at no cost and is intended for use as is.
+
+This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+
+If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
+
+The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at VehiPark Vehicle Parking Management System unless otherwise defined in this Privacy Policy.
+"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Information Collection and Use"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to Jinuka Herath, Bihansa Kasthuriarachchi. The information that I request will be retained on your device and is not collected by me in any way.
+
+The app does use third party services that may collect information used to identify you.
+
+Link to privacy policy of third party service providers used by the app\n
+
+Google Play Services\n
+AdMob\n
+Google Analytics for Firebase\n
+Firebase Crashlytics\n
+Facebook\n
+Matomo\n\n"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Log Data\n"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cookies\n"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+
+This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Service Providers\n"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="I may employ third-party companies and individuals due to the following reasons:\n\n
+
+To facilitate our Service;\n
+To provide the Service on our behalf;\n
+To perform Service-related services; or\n
+To assist us in analyzing how our Service is used.\n
+I want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.\n\n"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Children's Privacy\n"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do necessary actions.\n\n"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Contact Us\n"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at contactvp@vehipark.com.\n\n"/>
+
+        </LinearLayout>
+    </ScrollView>
+    <!--<CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1780px"
+        android:text="I have read and accept the Terms &amp; Conditions"
+        android:id="@+id/check_termsandconditions"/>-->
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="620px"
+        android:layout_marginTop="1870px"
+        android:text="Continue"
+        app:cornerRadius="50px"
+        app:rippleColor="#F23B5F" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="normal"
+        android:layout_marginTop="1950px"
+        android:text="Last updated October 22, 2021"/>
+</RelativeLayout>

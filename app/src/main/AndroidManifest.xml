@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VehiPark">
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".PrivacyPolicyActivity"></activity>
+        <activity android:name=".TermsAndConditionsActivity" />
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".CustomSpinner" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".SettingssActivity" />

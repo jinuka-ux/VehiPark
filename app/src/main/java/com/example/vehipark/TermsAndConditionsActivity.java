@@ -8,17 +8,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class BookingConfirmedActivity extends AppCompatActivity {
+public class TermsAndConditionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_confirmed);
-        TextView btn=findViewById(R.id.backToHomeBC);
-        btn.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_terms_and_conditions);
+
+
+        ImageView btn1=findViewById(R.id.imageView10);
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookingConfirmedActivity.this,HomeActivity.class));
+                startActivity(new Intent(TermsAndConditionsActivity.this,LogInActivity.class));
             }
         });
 
@@ -26,7 +28,7 @@ public class BookingConfirmedActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BookingConfirmedActivity.this,FAQActivity.class));
+                startActivity(new Intent(TermsAndConditionsActivity.this,FAQActivity.class));
             }
         });
     }

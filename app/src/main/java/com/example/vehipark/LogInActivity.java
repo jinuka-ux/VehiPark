@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,6 +76,23 @@ public class LogInActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(),HomeActivity.class));
             finish();
         }
+
+        TextView btn2=findViewById(R.id.textView7);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogInActivity.this,TermsAndConditionsActivity.class));
+            }
+        });
+
+        TextView btn3=findViewById(R.id.textView8);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogInActivity.this,PrivacyPolicyActivity.class));
+            }
+        });
+
 
 
     }
