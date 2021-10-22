@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class NewCredentialsActivity extends AppCompatActivity {
 
     EditText newPassword;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class NewCredentialsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_credentials);
 
         newPassword = findViewById(R.id.editTextNewConfirmPassword);
+        mAuth = FirebaseAuth.getInstance();
 
         Button btn1=findViewById(R.id.buttonSendCode);
         btn1.setOnClickListener(new View.OnClickListener() {
