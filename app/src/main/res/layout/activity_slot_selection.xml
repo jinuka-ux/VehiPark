@@ -168,7 +168,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="900px"
-                android:layout_height="900px"
+                android:layout_height="1000px"
                 android:id="@+id/recycler_view"
                 tools:listitem="@layout/item_slot"
                 app:spanCount="4"
@@ -188,7 +188,7 @@
         android:textStyle="normal"
         android:textSize="48px"
         android:fontFamily="@font/poppins"
-        android:layout_marginTop="1410px"/>
+        android:layout_marginTop="1510px"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
         android:textStyle="normal"
         android:textSize="48px"
         android:fontFamily="@font/poppins"
-        android:layout_marginTop="1410px"/>
+        android:layout_marginTop="1510px"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
         android:textStyle="normal"
         android:textSize="48px"
         android:fontFamily="@font/poppins"
-        android:layout_marginTop="1510px"/>
+        android:layout_marginTop="1610px"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -220,13 +220,13 @@
         android:textStyle="normal"
         android:textSize="48px"
         android:fontFamily="@font/poppins"
-        android:layout_marginTop="1510px"/>
+        android:layout_marginTop="1610px"/>
     <Button
         android:id="@+id/continueSlotSelection"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="600px"
-        android:layout_marginTop="1630px"
+        android:layout_marginTop="1730px"
         android:text="Continue"
         app:cornerRadius="50px"
         app:rippleColor="#F23B5F" />

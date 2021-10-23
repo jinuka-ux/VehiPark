@@ -74,11 +74,27 @@
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:src="@drawable/fav2"/>
+            <TextView
+                android:layout_marginTop="70px"
+                android:layout_marginLeft="50px"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
+                android:layout_height="match_parent"
+                android:text="Park C\n9.30 pm - 10.45 pm\nCost Rs. 150                   077-9142709"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="250px"
                 android:src="@drawable/fav1"/>
+            <TextView
+                android:layout_marginTop="320px"
+                android:layout_marginLeft="50px"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
+                android:layout_height="match_parent"
+                android:text="Park A\n9.30 pm - 10.45 pm\nCost Rs. 150                   077-9142709"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
