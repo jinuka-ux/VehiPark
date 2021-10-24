@@ -93,10 +93,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });*/
         arrayList = new ArrayList<>();
         //Add value in array list
-        arrayList.add("Park A");
-        arrayList.add("Park B");
+        arrayList.add("One Galle Face");
+        arrayList.add("KDU Car Park");
+        arrayList.add("Nawaloka Hospital");
         arrayList.add("Park C");
-        arrayList.add("Park D");
         arrayList.add("Park E");
         arrayList.add("Park F");
         arrayList.add("Park G");
