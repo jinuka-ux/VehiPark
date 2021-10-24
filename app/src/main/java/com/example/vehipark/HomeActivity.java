@@ -54,6 +54,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ArrayList<String> arrayList;
     Dialog dialog;
 
+    TextView emailID;
+    //FirebaseFirestore fstore;
+    //FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +71,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         tvTimer1=findViewById(R.id.tv_timer1);
         tvTimer2=findViewById(R.id.tv_timer2);
+
+        emailID = findViewById(R.id.emailID);
+
         fstore = FirebaseFirestore.getInstance();
 
         mauth = FirebaseAuth.getInstance();
         String userID = mauth.getCurrentUser().getUid();
 
-        String currentEmail = mauth.getCurrentUser().getEmail();
-        Toast.makeText(getApplicationContext(),currentEmail,Toast.LENGTH_SHORT).show();
+        //String currentEmail = mauth.getCurrentUser().getEmail();
+        //Toast.makeText(getApplicationContext(),currentEmail,Toast.LENGTH_SHORT).show();
 
         /*fstore.collection("Users").document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -255,9 +261,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //Hide or show items
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_login).setVisible(false);
+
         //mail = (TextView) menu.findItem(R.id.emailID);
-
-
 
         //name = findViewById(R.id.nameID);
         //mail = findViewById(R.id.emailID);
@@ -269,6 +274,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         navigationView.setCheckedItem(R.id.nav_home);
+
+
     }
 
     @Override
@@ -316,4 +323,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+        String mail = mauth.getCurrentUser().getEmail();
+        emailID.setText(mail);
+    }*/
+
+
 }

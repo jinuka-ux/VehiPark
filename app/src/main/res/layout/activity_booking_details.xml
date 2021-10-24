@@ -122,20 +122,23 @@
         android:textSize="64px"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="410px"/>
+
     <TextView
+        android:id="@+id/bname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bihansa K."
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="530px"
         android:fontFamily="@font/poppins"
+        android:text="XXXXX XXXXX"
         android:textColor="@color/black"
         android:textSize="64px"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="530px"/>
+        android:textStyle="bold" />
     <TextView
+        android:id="@+id/bprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price Rs. 100"
+        android:text="Price xx. xxx"
         android:fontFamily="@font/poppins"
         android:textColor="@color/black"
         android:textSize="55px"
@@ -169,6 +172,17 @@
         android:textSize="55px"
         android:layout_marginLeft="50px"
         android:layout_marginTop="1070px"/>
+
+    <TextView
+        android:id="@+id/bpark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1100px"
+        android:fontFamily="@font/poppins"
+        android:text="xxxx X"
+        android:textColor="@color/black"
+        android:textSize="55px" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,6 +193,16 @@
         android:layout_marginLeft="50px"
         android:layout_marginTop="1140px"/>
     <TextView
+        android:id="@+id/bslot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1150px"
+        android:fontFamily="@font/poppins"
+        android:text="xxx"
+        android:textColor="@color/black"
+        android:textSize="55px" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Duration"
@@ -188,6 +212,16 @@
         android:layout_marginLeft="50px"
         android:layout_marginTop="1210px"/>
     <TextView
+        android:id="@+id/bduration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1200px"
+        android:fontFamily="@font/poppins"
+        android:text="xxxx - xxxx"
+        android:textColor="@color/black"
+        android:textSize="55px" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price per hour"
@@ -196,6 +230,15 @@
         android:textSize="55px"
         android:layout_marginLeft="50px"
         android:layout_marginTop="1280px"/>
-
+    <TextView
+        android:id="@+id/bpprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1280px"
+        android:fontFamily="@font/poppins"
+        android:text="xxxx"
+        android:textColor="@color/black"
+        android:textSize="55px"/>
 
 </RelativeLayout>
