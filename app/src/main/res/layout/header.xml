@@ -24,7 +24,7 @@
         android:id="@+id/emailID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="jinukaherath123.jh@gmail.com"
+        android:text="vehiparkmobile@gmail.com"
         android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:textStyle="normal"
