@@ -18,7 +18,7 @@ public class PasswordUpdatedActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PasswordUpdatedActivity.this,LogInActivity.class));
+                startActivity(new Intent(PasswordUpdatedActivity.this,SettingssActivity.class));
             }
         });
     }

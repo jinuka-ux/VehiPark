@@ -52,8 +52,8 @@ public class SettingssActivity extends AppCompatActivity {
         regName = findViewById(R.id.regName);
         regContact = findViewById(R.id.regContact);
         regAddress = findViewById(R.id.regAddress);
-        applyButton =findViewById(R.id.applyButton);
-        click =findViewById(R.id.click);
+        applyButton = findViewById(R.id.applyButton);
+        click = findViewById(R.id.click);
         fstore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -65,11 +65,8 @@ public class SettingssActivity extends AppCompatActivity {
             }
         });
 
-        click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SettingssActivity.this,NewCredentialsActivity.class));
-            }
+        click.setOnClickListener(view ->{
+            startActivity(new Intent(SettingssActivity.this, NewCredentialsActivity.class));
         });
 
         /*TextView btn2=findViewById(R.id.clickHere);
