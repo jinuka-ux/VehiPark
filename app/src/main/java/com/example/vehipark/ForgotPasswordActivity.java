@@ -45,7 +45,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(ForgotPasswordActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ForgotPasswordActivity.this, "Link sent to your Email", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(ForgotPasswordActivity.this,LogInActivity.class));
                                 }
                             }

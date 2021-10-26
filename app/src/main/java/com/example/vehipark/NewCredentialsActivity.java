@@ -58,7 +58,7 @@ public class NewCredentialsActivity extends AppCompatActivity {
         }
 
         if (!passwordRe.equals(password)) {
-            Toast.makeText(NewCredentialsActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewCredentialsActivity.this, "Passwords does not match", Toast.LENGTH_SHORT).show();
             //newPassword.setError("Passwords does not Match");
             //newPassword.requestFocus();
         }else {
