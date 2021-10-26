@@ -64,6 +64,13 @@ public class SettingssActivity extends AppCompatActivity {
                 update();
             }
         });
+        ImageView btn2=findViewById(R.id.imageView10);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingssActivity.this,HomeActivity.class));
+            }
+        });
 
         click.setOnClickListener(view ->{
             startActivity(new Intent(SettingssActivity.this, NewCredentialsActivity.class));
@@ -110,7 +117,6 @@ public class SettingssActivity extends AppCompatActivity {
                     });
         }
 
-
     public void displayData() {
         String mail = mAuth.getCurrentUser().getEmail();
         regEmail.setText(mail);
@@ -131,6 +137,7 @@ public class SettingssActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onStart() {
