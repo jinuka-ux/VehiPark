@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:fontFamily="@font/poppins"
                 android:layout_height="match_parent"
-                android:text="Park A\n7.30pm - 8.45 pm\nCost Rs. 150"/>
+                android:text="Nawaloka Hospital\n10.00 am - 12.00 pm\nCost Rs. 200"/>
             <ImageView
                 android:layout_width="980px"
                 android:layout_height="wrap_content"
